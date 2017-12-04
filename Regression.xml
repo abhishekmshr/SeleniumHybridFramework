@@ -3,6 +3,7 @@
 <suite name="Regression">
   <test name="Test">
     <classes>
+      <class name="testcases.TestSwitchTab"/>
       <class name="testcases.TestLoginWithReportScreenshot"/>
       <class name="testcases.TestLoginWithReport"/>
     </classes>
