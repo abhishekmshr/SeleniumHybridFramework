@@ -1,6 +1,7 @@
 package testcases;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -15,8 +16,11 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import dataProvider.ConfigDataProvider;
+import dataProvider.ExcelDataProvider;
 import factory.BrowserFactory;
 import factory.DataProviderFactory;
+import pages.HomePage;
 import utility.Helper;
 
 public class BaseTest {
@@ -74,6 +78,12 @@ public void cleanup(ITestResult res)
 	}
 	//report.endTest(logger);
 	//report.flush();
+}
+public void login()
+{
+	HomePage home=PageFactory.initElements(driver, HomePage.class);
+	home.testlogin(DataProviderFactory.getExcelDataProvider().getData(0, 1, 0), DataProviderFactory.getExcelDataProvider().getData(0, 1, 1));
+	logger.log(LogStatus.INFO, "Logged in SuccessFully");
 }
 
 }

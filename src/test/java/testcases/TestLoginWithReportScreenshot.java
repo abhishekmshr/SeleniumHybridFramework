@@ -19,26 +19,12 @@ import pages.HomePage;
 import utility.Helper;
 
 public class TestLoginWithReportScreenshot extends BaseTest{
-/*WebDriver driver;
-ExtentReports report;
-ExtentTest logger;
-	@BeforeMethod
-	public void setup()
-	{ report=new ExtentReports("./Reports/TestLogin.html", true);
-	logger=report.startTest("LoginTest Started");
-		driver=BrowserFactory.getBrowser("firefox");
-	logger.log(LogStatus.PASS, "Driver Initialized");
-		String URL=DataProviderFactory.getconfigDataProvider().getURL();
-		driver.get(URL);
-		logger.log(LogStatus.PASS, "Application Launched");
-		
-	}*/
+
 	@Test
 	public void testLogin()
 	{
 		HomePage home=PageFactory.initElements(driver, HomePage.class);
-		//driver.findElement(By.xpath(".//input[@name='txtUsername']")).sendKeys("Admin");
-		//driver.findElement(By.xpath(".//input[@name='txtPassword']")).sendKeys("admin");
+		
 		
 		home.testlogin(DataProviderFactory.getExcelDataProvider().getData(0, 1,0), DataProviderFactory.getExcelDataProvider().getData(0, 1, 1));
 		
