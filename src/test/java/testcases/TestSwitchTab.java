@@ -43,5 +43,13 @@ public class TestSwitchTab extends BaseTest {
 		assertTrue(tabs.validateTable("Admin"));
 	}
 	
+	@Test(retryAnalyzer=Retry.class)
+	public void selectJob()
+	{ tabs.switchTab("Admin");
+		tabs.selectBootJobDrop(driver,"Pay Grades");
+		logger.log(LogStatus.INFO,"Inside SelectJob");
+		logger.log(LogStatus.INFO, logger.addScreenCapture(Helper.captureScreenshot(driver, "PayGrades")));
+	}
+	
 
 }
